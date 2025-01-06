@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { API_URL } from '../../constants';
 import { deletePost, fetchAllPosts } from '../../../services/postService';
