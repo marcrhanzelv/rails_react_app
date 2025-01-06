@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { API_URL } from "../constants";
+import { API_URL } from "../../constants";
 
 function NewPostForm() {
   const [title, setTitle] = useState("");
