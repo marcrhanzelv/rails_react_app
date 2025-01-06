@@ -8,6 +8,38 @@ async function fetchAllPosts() {
   return response.json();
 }
 
+async function createPost(postData) {
+  const response = await fetch(API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(postData),
+  });
+
+  if (!response.ok) {
+    throw new Error(`An error occurred: ${response.statusText}`);
+  }
+
+  return response.json();
+}
+
+async function updatePost(id, postData) {
+  const response = await fetch(`${API_URL}/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(postData),
+  });
+
+  if (!response.ok) {
+    throw new Error(`An error occurred: ${response.statusText}`);
+  }
+
+  return response.json();
+}
+
 async function fetchPost(id) {
   const response = await fetch(`${API_URL}/${id}`);
   if (!response.ok) {
@@ -33,4 +65,4 @@ async function deletePost(id) {
   }
 }
 
-export { deletePost, fetchAllPosts, fetchPost };
+export { createPost, deletePost, fetchAllPosts, fetchPost, updatePost };
