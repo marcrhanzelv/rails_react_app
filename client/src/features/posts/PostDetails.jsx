@@ -4,8 +4,6 @@ import { API_URL } from '../../constants';
 
 const PostDetails = () => {
   const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const { id } = useParams();
 
   useEffect(() => {
@@ -26,7 +24,7 @@ const PostDetails = () => {
     fetchCurrentPost();
   }, [id]);
 
-  if (loading) return <div>Loading...</div>;
+  if (!post) return <div>Loading...</div>;
 
   return (
     <div>
