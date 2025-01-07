@@ -53,16 +53,14 @@ async function deletePost(id) {
     method: "DELETE",
   });
 
-  if (!response.ok) {
-    throw new Error(`An error occurred: ${response.statusText}`);
-  }
-
   // 204 is No Content Status
   if (response.status === 204) {
     return;
   } else {
     return response.json();
   }
+
+  throw new Error(`An error occurred: ${response.statusText}`);
 }
 
 export { createPost, deletePost, fetchAllPosts, fetchPost, updatePost };
