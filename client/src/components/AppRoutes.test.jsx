@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { screen, render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import AppRoutes from './AppRoutes';

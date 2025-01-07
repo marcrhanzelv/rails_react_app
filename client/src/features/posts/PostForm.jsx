@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 function PostForm({ post, headerText, onSubmit, buttonText }) {
   const [formData, setFormData] = useState(
@@ -47,5 +48,19 @@ function PostForm({ post, headerText, onSubmit, buttonText }) {
     </div>
   )
 }
+
+PostForm.propTypes = {
+  post: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+  }),
+  headerText: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  buttonText: PropTypes.string.isRequired,
+};
+
+PostForm.defaultProps = {
+  post: null,
+};
 
 export default PostForm;

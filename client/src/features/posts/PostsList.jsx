@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { API_URL } from '../../constants';
 import { deletePost, fetchAllPosts } from '../../../services/postService';
 
 function PostsList() {
   const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [, setLoading] = useState(true);
+  const [, setError] = useState(null);
 
   // Fetch posts from the API
   useEffect(() => {
@@ -16,7 +15,7 @@ function PostsList() {
         setPosts(data);
         setLoading(false);
       } catch (e) {
-        setError('An error occured!');
+        setError('An error occured!', e);
         setLoading(false);
       }
     }
