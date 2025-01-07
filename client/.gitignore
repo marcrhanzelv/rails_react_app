@@ -25,3 +25,6 @@ dist-ssr
 
 .env
 .env.development
+
+#Don't push up coverage directory
+coverage
