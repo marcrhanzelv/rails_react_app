@@ -5,7 +5,13 @@ import PostForm from "./PostForm";
 function NewPostForm() {
   const navigate = useNavigate();
 
-  const handleCreateSubmit = async (formData) => {
+  const handleCreateSubmit = async (rawData) => {
+    // lets create the formdata object
+    const formData = new FormData();
+    // needs to be wrapped in a post
+    formData.append("post[title]", rawData.title);
+    formData.append("post[body]", rawData.body);
+    formData.append('post[image]', rawData.image);
     try {
       const response = await createPost(formData);
       navigate(`/posts/${response.id}`);
